@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './RNG.css'
+import randomInt from './random'
 
 class RNGContainer extends Component {
   constructor(props) {
@@ -70,8 +71,11 @@ class RNGContainer extends Component {
   }
 
   calculate() {
-    // wait for state to be updated
-    console.log('roll')
+    this.setState(prevState => {
+      return {
+        result: randomInt(prevState.min, prevState.max)
+      }
+    })  
   }
 
   render() {
@@ -89,7 +93,6 @@ class RNGContainer extends Component {
     )
   }
 }
-
 
 const RNG = ({min, max, result, onChange, onBlur, roll, errors}) => (
   <div>
