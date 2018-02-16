@@ -96,30 +96,32 @@ class RNGContainer extends Component {
 
 const RNG = ({min, max, result, onChange, onBlur, roll, errors}) => (
   <div>
-    <NumberInput
-      label="Min"
-      name="min"
-      value={min}
-      error={errors.min}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
-    <NumberInput
-      label="Max"
-      name="max"
-      value={max}
-      error={errors.max}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
-    <span>
+    <div>
+      <NumberInput
+        label="Min"
+        name="min"
+        value={min}
+        error={errors.min}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
+      <NumberInput
+        label="Max"
+        name="max"
+        value={max}
+        error={errors.max}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
+      <button
+        onClick={roll}
+      >
+        Calculate
+      </button>
+    </div>
+    <div>
       {result}
-    </span>
-    <button
-      onClick={roll}
-    >
-      Calculate
-    </button>
+    </div>
   </div>
 )
 
