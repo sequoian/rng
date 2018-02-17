@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import randomInt from './random'
+import randomInt from '../random'
 import PropTypes from 'prop-types'
 
 class DieContainer extends Component {

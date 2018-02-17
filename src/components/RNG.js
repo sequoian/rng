@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './RNG.css'
-import randomInt from './random'
+import randomInt from '../random'
+import NumberInput from './NumberInput'
 
 class RNGContainer extends Component {
   constructor(props) {
@@ -60,13 +61,15 @@ class RNGContainer extends Component {
   }
 
   swap() {
-    const min = parseInt(this.state.min, 10)
-    const max = parseInt(this.state.max, 10)
-    if (isNaN(max) || isNaN(min)) return
-    if (min <= max) return
-    this.setState({
-      min: max,
-      max: min
+    this.setState(prevState => {
+      const min = parseInt(prevState.min, 10)
+      const max = parseInt(prevState.max, 10)
+      if (isNaN(max) || isNaN(min)) return prevState
+      if (min <= max) return prevState
+      return {
+        min: prevState.max,
+        max: prevState.min
+      }
     })
   }
 
@@ -95,8 +98,8 @@ class RNGContainer extends Component {
 }
 
 const RNG = ({min, max, result, onChange, onBlur, roll, errors}) => (
-  <div>
-    <div>
+  <div id="rng">
+    <div className="inputs">
       <NumberInput
         label="Min"
         name="min"
@@ -119,26 +122,9 @@ const RNG = ({min, max, result, onChange, onBlur, roll, errors}) => (
         Calculate
       </button>
     </div>
-    <div>
+    <div className="result">
       {result}
     </div>
-  </div>
-)
-
-const NumberInput = ({value, label, name, error, onChange, onBlur}) => (
-  <div className={error ? 'error' : null}>
-    <label htmlFor={name}>
-      {label}
-    </label>
-    <input
-      type="text"
-      pattern="\d*"
-      id={name}
-      name={name}
-      value={value}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
   </div>
 )
 

@@ -1,0 +1,48 @@
+#rng {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 20px 0;
+  --border: 1px solid gray;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.inputs {
+  margin-right: 10px;
+}
+
+#rng button {
+  width: 100%;
+}
+
+.result {
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.result:after {
+  content: '.';
+  visibility: hidden;
+}
+
+@media (min-width: 576px) {
+  #rng {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    margin: auto;
+  }
+
+  .result {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .result {
+    font-size: 80px;
+  }
+}

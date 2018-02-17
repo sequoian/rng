@@ -1,0 +1,27 @@
+.num-input {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+input {
+  font-size: 16px;
+  padding: 2px 3px;
+  border: 1px solid #bdbdbd;
+  color: #3e3e3e;
+  width: 100px;
+}
+
+.error {
+  --err-color: #ff003e;
+  color: var(--err-color);
+}
+
+.error input {
+  color: var(--err-color);
+}

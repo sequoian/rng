@@ -6,7 +6,8 @@ import Die from './Die'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
+        <h1>Random Number Generator</h1>
         <RNG />
         <Die sides={4} />
         <Die sides={6} />

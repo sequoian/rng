@@ -1,0 +1,10 @@
+.App {
+  max-width: 960px;
+  padding: 0 15px;
+  margin: auto;
+  color: #3e3e3e;
+}
+
+h1 {
+  text-align: center;
+}
