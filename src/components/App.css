@@ -1,10 +1,24 @@
 .App {
-  max-width: 960px;
   padding: 0 15px;
-  margin: auto;
-  color: #3e3e3e;
+}
+
+h1, h2 {
+  font-weight: bold;
+  text-align: center;
+  margin: 25px 0;
 }
 
 h1 {
-  text-align: center;
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 25px;
+  margin-top: 35px;
+}
+
+.dice {
+  padding-top: 15px;
+  max-width: 650px;
+  margin: auto;
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import randomInt from '../random'
 import PropTypes from 'prop-types'
+import './Die.css'
 
 class DieContainer extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ DieContainer.propTypes = {
 
 const Die = ({name, result, roll}) => (
   <div className="die">
-    <div>{result}</div>
+    <div className="result">{result}</div>
     <button
       onClick={roll}
     >
