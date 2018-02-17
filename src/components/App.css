@@ -22,3 +22,12 @@ h2 {
   max-width: 650px;
   margin: auto;
 }
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ce4b19;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

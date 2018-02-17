@@ -12,6 +12,10 @@ class DieContainer extends Component {
     this.roll = this.roll.bind(this)
   }
 
+  componentDidMount() {
+    this.roll()
+  }
+
   roll() {
     this.setState({
       result: randomInt(1, this.props.sides)

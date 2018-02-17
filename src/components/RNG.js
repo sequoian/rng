@@ -17,6 +17,10 @@ class RNGContainer extends Component {
     this.calculate = this.calculate.bind(this)
   }
 
+  componentDidMount() {
+    this.calculate()
+  }
+
   handleInput(event) {
     const {name, value} = event.target
     this.setState({
