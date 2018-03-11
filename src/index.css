@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:500');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   min-height: 100vh;
   background-color: whitesmoke;
+}
+
+body, button {
+  font-family: 'Rajdhani', sans-serif;
 }
