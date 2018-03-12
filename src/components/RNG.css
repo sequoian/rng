@@ -41,3 +41,29 @@
     font-size: 60px;
   }
 }
+
+/* fade animation for result */
+
+@keyframes fade {
+  from {
+    color: #ce4b19;
+  }
+  to {
+    color: black;
+  }
+}
+
+.result {
+  color: #ce4b19;
+}
+
+.result.start {
+  color: black;
+}
+
+.rolled {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  color: #ce4b19;
+}

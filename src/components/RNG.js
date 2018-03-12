@@ -14,11 +14,16 @@ class RNGContainer extends Component {
     }
     this.handleInput = this.handleInput.bind(this)
     this.validate = this.validate.bind(this)
-    this.calculate = this.calculate.bind(this)
+    this.roll = this.roll.bind(this)
+    this.getRef = this.getRef.bind(this)
   }
 
   componentDidMount() {
     this.calculate()
+  }
+
+  getRef(node) {
+    this.display = node
   }
 
   handleInput(event) {
@@ -77,12 +82,23 @@ class RNGContainer extends Component {
     })
   }
 
+  roll() {
+    this.calculate()
+    this.fade()
+  }
+
   calculate() {
     this.setState(prevState => {
       return {
         result: randomInt(prevState.min, prevState.max)
       }
-    })  
+    })
+  }
+
+  fade() {
+    this.display.classList.remove('start')
+    this.display.classList.remove('rolled')
+    setTimeout(() => this.display.classList.add('rolled'), 100)
   }
 
   render() {
@@ -95,13 +111,14 @@ class RNGContainer extends Component {
         errors={errors}
         onChange={this.handleInput}
         onBlur={this.validate}
-        roll={this.calculate}
+        roll={this.roll}
+        getRef={this.getRef}
       />
     )
   }
 }
 
-const RNG = ({min, max, result, onChange, onBlur, roll, errors}) => (
+const RNG = ({min, max, result, onChange, onBlur, roll, errors, getRef}) => (
   <div id="rng">
     <div className="inputs">
       <NumberInput
@@ -126,10 +143,13 @@ const RNG = ({min, max, result, onChange, onBlur, roll, errors}) => (
         Calculate
       </button>
     </div>
-    <div className="result">
+    <div 
+      ref={getRef}
+      className="result start"
+    >
       {result}
     </div>
-  </div>
+  </div> 
 )
 
 export default RNGContainer
