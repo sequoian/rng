@@ -10,16 +10,32 @@ class DieContainer extends Component {
       result: null
     }
     this.roll = this.roll.bind(this)
+    this.getRef = this.getRef.bind(this)
   }
 
   componentDidMount() {
-    this.roll()
+    this.calculate()
   }
 
   roll() {
+    this.calculate()
+    this.fade()
+  }
+
+  calculate() {
     this.setState({
       result: randomInt(1, this.props.sides)
     })
+  }
+
+  fade() {
+    this.display.classList.remove('start')
+    this.display.classList.remove('rolled')
+    setTimeout(() => this.display.classList.add('rolled'), 100)
+  }
+
+  getRef(node) {
+    this.display = node
   }
 
   render() {
@@ -28,6 +44,7 @@ class DieContainer extends Component {
         name={'d' + this.props.sides}
         result={this.state.result}
         roll={this.roll}
+        getRef={this.getRef}
       />
     )
   }
@@ -37,9 +54,14 @@ DieContainer.propTypes = {
   sides: PropTypes.number.isRequired,
 }
 
-const Die = ({name, result, roll}) => (
+const Die = ({name, result, roll, getRef}) => (
   <div className="die">
-    <div className="result">{result}</div>
+    <div 
+      ref={getRef}
+      className="result start"
+    >
+      {result}
+    </div>
     <button
       onClick={roll}
     >
